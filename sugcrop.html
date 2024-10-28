@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Your head content -->
+</head>
+<body>
+    <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
+        <label for="state">Select State:</label>
+        <select name="state" id="state">
+            <option value="">Select State</option>
+            <option value="Maharashtra">Maharashtra</option>
+            <option value="Karnataka">Karnataka</option>
+            <!-- Add more states here -->
+        </select>
+
+        <label for="district">Select District:</label>
+        <select name="district" id="district">
+            <option value="">Select District</option>
+        </select>
+
+        <input type="submit" value="Submit">
+    </form>
+
+    <div class="content">
+        <?php
+        if ($_SERVER["REQUEST_METHOD"] == "POST") {
+            echo "<p>Selected State: " . ($_POST['state'] ?? 'Not selected') . "</p>";
+            echo "<p>Selected District: " . ($_POST['district'] ?? 'Not selected') . "</p>";
+        }
+        ?>
+    </div>
+</body>
+</html>
